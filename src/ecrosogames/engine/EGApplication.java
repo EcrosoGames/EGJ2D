@@ -2,9 +2,11 @@ package ecrosogames.engine;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
  * The main class for the {@link ApplicationListener} that all games will extend
@@ -14,6 +16,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
  */
 public abstract class EGApplication extends ApplicationAdapter {
 
+	protected static SpriteBatch batch;
 	protected final EGVersion version;
 	protected int fps;
 	protected int fpsCounter;
@@ -99,7 +102,17 @@ public abstract class EGApplication extends ApplicationAdapter {
 	 * the FPS and Updates, or set their values somewhere.
 	 */
 	protected void oneSecond() {
-		return;
+		;
+	}
+
+	/**
+	 * Returns the {@link SpriteBatch} used for this {@link Application}. There
+	 * should always only be one instance of this.
+	 * 
+	 * @return
+	 */
+	public static SpriteBatch getBatch() {
+		return batch;
 	}
 
 	/**

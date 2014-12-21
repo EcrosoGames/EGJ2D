@@ -75,7 +75,7 @@ public class EGVersion {
 	 * <em>release</em>.<em>update</em>.<em>snapshot</em>_
 	 * <em>developmentStatus</em><br>
 	 * <strong>NOTE:</strong> developmentStatus uses the
-	 * {@link DevelopmentStatus#getAcronym()}.
+	 * {@link DevelopmentStatus#getAbbreviation()}.
 	 * 
 	 * @return
 	 */

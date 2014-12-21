@@ -9,25 +9,41 @@ import java.io.File;
  */
 public class SystemData {
 
-	private static final String EGDataFolderName = ".EcrosoGames";
-	private static String appFolderName;
-	private static File dataFolder;
+	private static final String EGFolderName = ".EcrosoGames";
+	private static File folder;
+	private static String folderName;
+	private static String osName;
+
+	/**
+	 * An instance of this class isn't needed.
+	 */
+	private SystemData() {
+		;
+	}
+
+	static {
+		init();
+	}
+
+	private static void init() {
+		osName = System.getProperty("os.name");
+	}
 
 	/**
 	 * Initializes the data folder.
 	 */
 	private static void initDataFolder() {
-		String os = System.getProperty("os.name").toLowerCase();
+		String os = osName.toLowerCase();
 		String path = new String();
 		if (os.contains("win")) {
-			path = System.getenv("AppData") + "/" + EGDataFolderName + "/" + appFolderName;
+			path = System.getenv("AppData") + "/" + EGFolderName + "/" + folderName;
 		} else {
 			path = System.getProperty("user.home");
 			if (os.contains("mac")) path += "/Library";
-			path += "/" + EGDataFolderName + "/" + appFolderName;
+			path += "/" + EGFolderName + "/" + folderName;
 		}
-		dataFolder = new File(path);
-		if (!dataFolder.exists()) dataFolder.mkdirs();
+		folder = new File(path);
+		if (!folder.exists()) folder.mkdirs();
 	}
 
 	/**
@@ -42,8 +58,8 @@ public class SystemData {
 	 * @return
 	 */
 	public static File getDataFolder() {
-		if (dataFolder == null) initDataFolder();
-		return dataFolder;
+		if (folderName == null) throw new NullPointerException("The Folder Name has not been set! Use SystemData.setDataFolderName(String)");
+		return folder;
 	}
 
 	/**
@@ -59,6 +75,7 @@ public class SystemData {
 	 * @param name
 	 */
 	public static void setDataFolderName(String name) {
-		appFolderName = name;
+		folderName = name;
+		initDataFolder();
 	}
 }

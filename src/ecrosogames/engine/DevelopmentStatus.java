@@ -25,18 +25,18 @@ public enum DevelopmentStatus {
 	 */
 	Official("O");
 
-	private String acronym;
+	private String abbreviation;
 
-	private DevelopmentStatus(String acronym) {
-		this.acronym = acronym;
+	private DevelopmentStatus(String abbreviation) {
+		this.abbreviation = abbreviation;
 	}
 
 	/**
-	 * Returns the acronym used by the development status.
+	 * Returns the abbreviation used by the development status.
 	 * 
 	 * @return
 	 */
-	public String getAcronym() {
-		return acronym;
+	public String getAbbreviation() {
+		return abbreviation;
 	}
 }
