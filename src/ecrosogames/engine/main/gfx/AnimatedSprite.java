@@ -1,8 +1,8 @@
-package ecrosogames.engine.gfx;
+package ecrosogames.engine.main.gfx;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
-import ecrosogames.engine.EGApplication;
+import ecrosogames.engine.main.EGApplication;
 
 /**
  * A {@link Sprite} with an animation. This class extends Sprite so that it will

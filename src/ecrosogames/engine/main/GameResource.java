@@ -1,4 +1,4 @@
-package ecrosogames.engine;
+package ecrosogames.engine.main;
 
 import java.util.HashMap;
 import java.util.Map;

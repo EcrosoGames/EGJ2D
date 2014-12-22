@@ -1,4 +1,4 @@
-package ecrosogames.engine;
+package ecrosogames.engine.main;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationAdapter;
@@ -114,7 +114,7 @@ public abstract class EGApplication extends ApplicationAdapter {
 	public static SpriteBatch getBatch() {
 		return batch;
 	}
-
+	
 	/**
 	 * Sets the update rate for the game. This can be changed during the
 	 * activity of the application. The default and preferred is 60.

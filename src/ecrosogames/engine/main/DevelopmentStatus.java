@@ -1,4 +1,4 @@
-package ecrosogames.engine;
+package ecrosogames.engine.main;
 
 /**
  * The current Development Status of the game.

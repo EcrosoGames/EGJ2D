@@ -1,4 +1,4 @@
-package ecrosogames.engine.gamestate;
+package ecrosogames.engine.main.gamestate;
 
 import java.util.ArrayList;
 import java.util.HashMap;

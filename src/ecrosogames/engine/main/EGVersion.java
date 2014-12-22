@@ -1,4 +1,4 @@
-package ecrosogames.engine;
+package ecrosogames.engine.main;
 
 /**
  * Expresses the version of the game.

@@ -1,4 +1,4 @@
-package ecrosogames.engine.interfaces;
+package ecrosogames.engine.main.interfaces;
 
 /**
  * This is for any class that supports an update() method.

@@ -1,4 +1,4 @@
-package ecrosogames.engine.gamestate;
+package ecrosogames.engine.main.gamestate;
 
 /**
  * A part of the game
@@ -18,16 +18,12 @@ public abstract class GameState {
 	 * This initializes the GameState. This should be called only once during
 	 * runtime.
 	 */
-	protected void init() {
-		return;
-	}
+	protected abstract void init();
 
 	/**
 	 * This method will be called every time the GameState is switched to.
 	 */
-	public void load() {
-		return;
-	}
+	public abstract void load();
 
 	/**
 	 * A method used to update information for the GameState. No rendering
