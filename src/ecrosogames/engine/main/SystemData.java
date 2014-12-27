@@ -33,6 +33,7 @@ public class SystemData {
 	 * Initializes the data folder.
 	 */
 	private static void initDataFolder() {
+		if (folderName == null) return;
 		String os = osName.toLowerCase();
 		String path = new String();
 		if (os.contains("win")) {
