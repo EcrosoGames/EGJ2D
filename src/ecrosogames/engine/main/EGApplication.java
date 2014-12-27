@@ -6,7 +6,10 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import ecrosogames.engine.main.interfaces.Updatable;
 
 /**
  * The main class for the {@link ApplicationListener} that all games will extend
@@ -14,7 +17,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  * 
  * @author Michael Musgrove (CoderMusgrove)
  */
-public abstract class EGApplication extends ApplicationAdapter {
+public abstract class EGApplication extends ApplicationAdapter implements Updatable {
 
 	protected static SpriteBatch batch;
 	protected final EGVersion version;
@@ -41,14 +44,17 @@ public abstract class EGApplication extends ApplicationAdapter {
 		this.version = version;
 		SystemData.setDataFolderName(dataFolderName);
 		new LwjglApplication(this, config);
+	}
+
+	@Override
+	public void create() {
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		batch = new SpriteBatch();
 		init();
 	}
 
 	/**
-	 * An initialization method. This should be called only once. This method is
-	 * called from the
-	 * {@link #EGApplication(String, String, LwjglApplicationConfiguration)}
-	 * constructor.
+	 * An initialization method. This should be called only once for the application.
 	 */
 	protected abstract void init();
 
@@ -62,10 +68,7 @@ public abstract class EGApplication extends ApplicationAdapter {
 	 */
 	protected abstract void renderGame();
 
-	/**
-	 * A simplistic update method that is separate information given to the
-	 * program. This method calls updateGame();
-	 */
+	@Override
 	public void update() {
 		deltaTime += Gdx.graphics.getDeltaTime() * updateRate;
 		while (deltaTime > 1) {
@@ -90,6 +93,7 @@ public abstract class EGApplication extends ApplicationAdapter {
 			fpsCounter = 0;
 			updates = 0;
 		} else fpsCounter++;
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		renderGame();
 		update();
 	}
@@ -114,7 +118,7 @@ public abstract class EGApplication extends ApplicationAdapter {
 	public static SpriteBatch getBatch() {
 		return batch;
 	}
-	
+
 	/**
 	 * Sets the update rate for the game. This can be changed during the
 	 * activity of the application. The default and preferred is 60.
