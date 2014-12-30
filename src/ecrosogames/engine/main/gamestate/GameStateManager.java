@@ -31,14 +31,18 @@ public class GameStateManager {
 
 	/**
 	 * Sets the current GameState. If the state is currently not null, it will
-	 * first call {@link GameState#dispose()}.
+	 * first call {@link GameState#dispose()}, and then set the current
+	 * GameState.
 	 * 
-	 * @param state
-	 *            The new GameState
+	 * @param id
+	 *            The id of the GameState.
 	 */
-	public static void setGameState(GameState state) {
+	public static void setGameState(int id) {
+		GameState state = gameStates.get(id);
+		if (state == null) return;
 		if (currentGameState != null) currentGameState.dispose();
 		currentGameState = state;
+		state.load();
 	}
 
 	/**
