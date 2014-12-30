@@ -94,7 +94,9 @@ public abstract class EGApplication extends ApplicationAdapter implements Updata
 			updates = 0;
 		} else fpsCounter++;
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		batch.begin();
 		renderGame();
+		batch.end();
 		update();
 	}
 
