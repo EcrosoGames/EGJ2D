@@ -5,20 +5,13 @@ package ecrosogames.engine.main.gamestate;
  * 
  * @author Michael Musgrove (CoderMusgrove)
  */
-public abstract class GameState {
-
-	/**
-	 * Creates a new GameState.
-	 */
-	public GameState() {
-		init();
-	}
+public abstract interface GameState {
 
 	/**
 	 * This initializes the GameState. This should be called only once during
 	 * runtime.
 	 */
-	protected abstract void init();
+	abstract void init();
 
 	/**
 	 * This method will be called every time the GameState is switched to.
@@ -40,7 +33,7 @@ public abstract class GameState {
 	 * A method that should be used to release any unnecessary resources when
 	 * the GameState is changed.
 	 */
-	public void dispose() {
+	public default void dispose() {
 		return;
 	}
 }
