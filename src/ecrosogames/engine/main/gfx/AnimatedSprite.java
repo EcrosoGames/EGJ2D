@@ -1,8 +1,12 @@
 package ecrosogames.engine.main.gfx;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 import ecrosogames.engine.main.EGApplication;
+import ecrosogames.engine.main.interfaces.Renderable;
+import ecrosogames.engine.main.interfaces.Updatable;
 
 /**
  * A {@link Sprite} with an animation. This class extends Sprite so that it will
@@ -10,7 +14,7 @@ import ecrosogames.engine.main.EGApplication;
  * 
  * @author Michael Musgrove (CoderMusgrove)
  */
-public class AnimatedSprite extends Sprite {
+public class AnimatedSprite extends Sprite implements Updatable, Renderable {
 
 	private Sprite[] sprites;
 	private int rate;
@@ -31,6 +35,7 @@ public class AnimatedSprite extends Sprite {
 		this.rate = rate;
 	}
 
+	@Override
 	public void update() {
 		if (counter >= rate) {
 			if (frame < sprites.length - 1) frame++;
@@ -40,8 +45,66 @@ public class AnimatedSprite extends Sprite {
 		this.sprite = sprites[counter];
 	}
 
+	/**
+	 * Draws the current Sprite that the AnimatedSprite is currently using.
+	 */
+	@Override
 	public void render() {
 		sprite.draw(EGApplication.getBatch());
+	}
+
+	@Override
+	public void setColor(Color color) {
+		super.setColor(color);
+		for (int i = 0; i < sprites.length; i++) {
+			sprites[i].setColor(color);
+		}
+	}
+
+	@Override
+	public void setColor(float r, float g, float b, float a) {
+		setColor(new Color(r, g, b, a));
+	}
+
+	@Override
+	public void setColor(float color) {
+		super.setColor(color);
+		for (int i = 0; i < sprites.length; i++) {
+			sprites[i].setColor(color);
+		}
+	}
+
+	/**
+	 * This method is useless for the AnimatedSprite class, thus it does
+	 * nothing.
+	 * 
+	 * @see #set(AnimatedSprite)
+	 */
+	@Override
+	public void set(Sprite sprite) {
+		return;
+	}
+
+	/**
+	 * Makes this AnimatedSprite a copy of the specified AnimatedSprite in every
+	 * way.
+	 * 
+	 * @param sprite
+	 */
+	public void set(AnimatedSprite sprite) {
+		this.sprites = sprite.sprites;
+		this.rate = sprite.rate;
+		this.frame = sprite.frame;
+		this.counter = sprite.counter;
+		this.sprite = sprite.sprite;
+	}
+
+	/**
+	 * @see #render()
+	 */
+	@Override
+	public void draw(Batch batch) {
+		render();
 	}
 
 	/**

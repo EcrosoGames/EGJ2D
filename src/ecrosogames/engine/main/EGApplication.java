@@ -54,7 +54,8 @@ public abstract class EGApplication extends ApplicationAdapter implements Updata
 	}
 
 	/**
-	 * An initialization method. This should be called only once for the application.
+	 * An initialization method. This should be called only once for the
+	 * application.
 	 */
 	protected abstract void init();
 
