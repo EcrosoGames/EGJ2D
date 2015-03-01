@@ -1,7 +1,6 @@
 package ecrosogames.engine.main;
 
 import com.badlogic.gdx.Application;
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
@@ -15,9 +14,9 @@ import ecrosogames.engine.main.interfaces.Updatable;
  * The main class for the {@link ApplicationListener} that all games will extend
  * that contains specific data for the application.
  * 
- * @author Michael Musgrove (CoderMusgrove)
+ * @author Michael Musgrove
  */
-public abstract class EGApplication extends ApplicationAdapter implements Updatable {
+public abstract class EGApplication extends EGGame implements Updatable {
 
 	protected static SpriteBatch batch;
 	protected final EGVersion version;
@@ -42,7 +41,7 @@ public abstract class EGApplication extends ApplicationAdapter implements Updata
 	 */
 	public EGApplication(EGVersion version, String dataFolderName, LwjglApplicationConfiguration config) {
 		this.version = version;
-		SystemData.setDataFolderName(dataFolderName);
+		if (dataFolderName != null) SystemData.setDataFolderName(dataFolderName);
 		new LwjglApplication(this, config);
 	}
 
@@ -95,9 +94,7 @@ public abstract class EGApplication extends ApplicationAdapter implements Updata
 			updates = 0;
 		} else fpsCounter++;
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
 		renderGame();
-		batch.end();
 		update();
 	}
 
