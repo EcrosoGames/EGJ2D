@@ -1,39 +1,45 @@
 package ecrosogames.engine.main.gamestate;
 
+import com.badlogic.gdx.Gdx;
+
 /**
- * A part of the game
+ * A GameState is a controller for the current state of the game.
  * 
- * @author Michael Musgrove (CoderMusgrove)
+ * @author Michael Musgrove
  */
-public abstract interface GameState {
+public abstract class GameState implements IGameState {
 
 	/**
-	 * This initializes the GameState. This should be called only once during
-	 * runtime.
+	 * Creates a new GameState with the width and height of the window.
 	 */
-	abstract void init();
+	public GameState() {
+		this(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+	}
 
 	/**
-	 * This method will be called every time the GameState is switched to.
+	 * Creates a new GameState.
+	 * 
+	 * @param width
+	 *            The width of the GameState.
+	 * @param height
+	 *            The height of the GameState.
 	 */
-	public abstract void load();
+	public GameState(int width, int height) {
+		resize(width, height);
+		init();
+	}
 
 	/**
-	 * A method used to update information for the GameState. No rendering
-	 * should be done inside of this.
+	 * In the EGJ2D method, LibGDX's <code>render(float)</code> method is
+	 * obsolete. It is recommended that the <code>render()</code> and
+	 * <code>update()</code> methods are used, and that the
+	 * <code>render()</code> and <code>update()</code> method speeds are set in
+	 * the main application's <code>renderGame()</code> and
+	 * <code>updateGame()</code> methods.
 	 */
-	public abstract void update();
-
-	/**
-	 * A method used to render this GameState.
-	 */
-	public abstract void render();
-
-	/**
-	 * A method that should be used to release any unnecessary resources when
-	 * the GameState is changed.
-	 */
-	public default void dispose() {
+	@Deprecated
+	@Override
+	public void render(float delta) {
 		return;
 	}
 }
