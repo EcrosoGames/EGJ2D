@@ -1,6 +1,7 @@
 package ecrosogames.engine.main;
 
 import com.badlogic.gdx.Application;
+import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
@@ -16,7 +17,7 @@ import ecrosogames.engine.main.interfaces.Updatable;
  * 
  * @author Michael Musgrove
  */
-public abstract class EGApplication extends EGGame implements Updatable {
+public abstract class EGApplication extends ApplicationAdapter implements Updatable {
 
 	protected static SpriteBatch batch;
 	protected final EGVersion version;
