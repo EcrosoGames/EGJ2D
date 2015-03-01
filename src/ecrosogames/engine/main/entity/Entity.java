@@ -7,7 +7,7 @@ import ecrosogames.engine.main.interfaces.Updatable;
 /**
  * An Entity is an object in the game that is interactable in some form.
  * 
- * @author Michael Musgrove (CoderMusgrove)
+ * @author Michael Musgrove
  */
 public abstract class Entity implements Updatable {
 
