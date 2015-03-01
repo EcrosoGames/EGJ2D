@@ -1,110 +1,48 @@
 package ecrosogames.engine.main.gamestate;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
- * A manager for every {@link GameState}.
+ * A manager for every {@link IGameState}.
  * 
- * @author Michael Musgrove (CoderMusgrove)
+ * @author Michael Musgrove
  */
 public class GameStateManager {
 
-	private static Map<Integer, GameState> gameStates = new HashMap<>();
-	private static GameState currentGameState;
+	private static Map<String, IGameState> gameStates = new HashMap<>();
 
 	/**
-	 * Calls {@link GameState#update()} if the current GameState is not null.
-	 */
-	public static void update() {
-		if (currentGameState != null) currentGameState.update();
-	}
-
-	/**
-	 * Calls {@link GameState#render()} if the current GameState is not null.
-	 */
-	public static void render() {
-		if (currentGameState != null) currentGameState.render();
-	}
-
-	/**
-	 * Sets the current GameState. If the state is currently not null, it will
-	 * first call {@link GameState#dispose()}, and then set the current
-	 * GameState.
+	 * Adds a new GameState Screen to the list for management.
 	 * 
-	 * @param id
-	 *            The id of the GameState.
-	 */
-	public static void setGameState(int id) {
-		GameState state = gameStates.get(id);
-		if (state == null) return;
-		if (currentGameState != null) currentGameState.dispose();
-		currentGameState = state;
-		state.load();
-	}
-
-	/**
-	 * Adds a new GameState to the list of Game States.
-	 * 
-	 * @param id
-	 *            The id to grab the GameState from.
+	 * @param name
+	 *            The name (key) to retrieve the IGameState.
 	 * @param state
-	 *            The GameState to retreive with the id.
-	 * @return The added GameState.
-	 */
-	public static GameState addGameState(int id, GameState state) {
-		return gameStates.put(id, state);
-	}
-
-	/**
-	 * Removes the GameState with the specified id.
-	 * 
-	 * @param id
-	 *            The id of the GameState.
-	 * @return The removed GameState, or null if not found.
-	 */
-	public static GameState removeGameState(int id) {
-		return gameStates.remove(id);
-	}
-
-	/**
-	 * Returns the GameState with the specified id.
-	 * 
-	 * @param id
-	 *            The id of the GameState.
-	 * @return The GameState with the specified id, or null if not found.
-	 */
-	public static GameState getGameState(int id) {
-		return gameStates.get(id);
-	}
-
-	/**
-	 * Returns the complete {@link Map} of the GameStates as &lt;Integer,
-	 * GameState&gt;
-	 * 
+	 *            The IGameState that is linked with the name (key).
 	 * @return
 	 */
-	public static Map<Integer, GameState> getGameStateMap() {
-		return gameStates;
+	public static IGameState add(String name, IGameState state) {
+		return gameStates.put(name, state);
 	}
 
 	/**
-	 * Returns the list of the keys from the Map.
+	 * Removes the IGameState with the specified name (key).
 	 * 
-	 * @return
+	 * @param name
+	 *            The name of the IGameState.
+	 * @return The removed IGameState, or null if it didn't exist.
 	 */
-	public static List<Integer> getKeys() {
-		return new ArrayList<Integer>(gameStates.keySet());
+	public static IGameState remove(String name) {
+		return gameStates.remove(name);
 	}
 
 	/**
-	 * Returns the list of the values from the Map.
+	 * Gets the IGameState specified by the name (key)
 	 * 
-	 * @return
+	 * @param name
+	 * @return The IGameState, or null if not found.
 	 */
-	public static List<GameState> getGameStates() {
-		return new ArrayList<GameState>(gameStates.values());
+	public static IGameState get(String name) {
+		return gameStates.get(name);
 	}
 }
