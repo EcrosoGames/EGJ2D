@@ -1,9 +1,10 @@
 package ecrosogames.engine.main.util.task;
 
 /**
- * A task that Repeats after a given period of time.
+ * A task that Repeats after a given period of time. This type of task has to be
+ * manually set to finished.
  * 
- * @author Michael Musgrove (CoderMusgrove)
+ * @author Michael Musgrove
  */
 public class RepeatingTask extends Task {
 

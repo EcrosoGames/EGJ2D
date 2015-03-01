@@ -3,7 +3,7 @@ package ecrosogames.engine.main.interfaces;
 /**
  * This is for any class that supports an update() method.
  * 
- * @author Michael Musgrove (CoderMusgrove)
+ * @author Michael Musgrove
  */
 public interface Updatable {
 

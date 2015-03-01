@@ -5,7 +5,7 @@ import ecrosogames.engine.main.interfaces.Updatable;
 /**
  * An event that should take place at a later time.
  * 
- * @author Michael Musgrove (CoderMusgrove)
+ * @author Michael Musgrove
  */
 public class Task implements Updatable {
 

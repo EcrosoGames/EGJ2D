@@ -9,7 +9,7 @@ import java.util.UUID;
  * A handler for tasks that is designed to host tasks. This would be used to
  * update, run, and remove the tasks when finished.
  * 
- * @author Michael Musgrove (CoderMusgrove)
+ * @author Michael Musgrove
  */
 public class TaskManager {
 
