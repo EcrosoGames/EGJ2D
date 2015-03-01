@@ -11,7 +11,7 @@ import ecrosogames.engine.main.interfaces.Updatable;
  * A {@link Sprite} with an animation. This class extends Sprite so that it will
  * be a subclass of Sprite, but the inherited methods are currently useless.
  * 
- * @author Michael Musgrove (CoderMusgrove)
+ * @author Michael Musgrove
  */
 public class AnimatedSprite extends Sprite implements Updatable, Renderable {
 
