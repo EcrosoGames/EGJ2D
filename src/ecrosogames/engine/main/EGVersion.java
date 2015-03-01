@@ -3,8 +3,7 @@ package ecrosogames.engine.main;
 /**
  * Expresses the version of the game.
  * 
- * @author Michael Musgrove (CoderMusgrove)
- *
+ * @author Michael Musgrove
  */
 public class EGVersion {
 

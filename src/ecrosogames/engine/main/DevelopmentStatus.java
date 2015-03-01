@@ -3,7 +3,7 @@ package ecrosogames.engine.main;
 /**
  * The current Development Status of the game.
  * 
- * @author Michael Musgrove (CoderMusgrove)
+ * @author Michael Musgrove
  */
 public enum DevelopmentStatus {
 	/**
