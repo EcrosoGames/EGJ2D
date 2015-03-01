@@ -7,8 +7,7 @@ import java.util.Map;
  * A handler for all game resources. They're stored with a key as a String, and
  * returns the specified resource by the key.
  * 
- * @author Michael Musgrove (CoderMusgrove)
- *
+ * @author Michael Musgrove
  */
 public class GameResource {
 
