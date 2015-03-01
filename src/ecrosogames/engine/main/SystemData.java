@@ -5,7 +5,7 @@ import java.io.File;
 /**
  * Information used by the program.
  * 
- * @author Michael Musgrove (CoderMusgrove)
+ * @author Michael Musgrove
  */
 public class SystemData {
 
@@ -36,13 +36,12 @@ public class SystemData {
 		if (folderName == null) return;
 		String os = osName.toLowerCase();
 		String path = new String();
-		if (os.contains("win")) {
-			path = System.getenv("AppData") + "/" + EGFolderName + "/" + folderName;
-		} else {
-			path = System.getProperty("user.home");
-			if (os.contains("mac")) path += "/Library";
-			path += "/" + EGFolderName + "/" + folderName;
-		}
+		
+		path = System.getProperty("user.home");
+		if (os.contains("win")) path = System.getenv("AppData");
+		else if (os.contains("mac")) path += "/Library";
+		path += "/" + EGFolderName + "/" + folderName;
+		
 		folder = new File(path);
 		if (!folder.exists()) folder.mkdirs();
 	}
