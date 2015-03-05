@@ -2,7 +2,7 @@ package ecrosogames.engine.main.entity;
 
 import com.badlogic.gdx.physics.box2d.World;
 
-import ecrosogames.engine.main.interfaces.Updatable;
+import ecrosogames.engine.main.Updatable;
 
 /**
  * An Entity is an object in the game that is interactable in some form.

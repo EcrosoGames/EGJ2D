@@ -9,8 +9,6 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import ecrosogames.engine.main.interfaces.Updatable;
-
 /**
  * The main class for the {@link ApplicationListener} that all games will extend
  * that contains specific data for the application.

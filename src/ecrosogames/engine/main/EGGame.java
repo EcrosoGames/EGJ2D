@@ -12,7 +12,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import ecrosogames.engine.main.gamestate.GameState;
 import ecrosogames.engine.main.gamestate.IGameState;
-import ecrosogames.engine.main.interfaces.Updatable;
 
 /**
  * An EGJ2D version of the {@link Game} class, so more of EGJ2D's utilities are

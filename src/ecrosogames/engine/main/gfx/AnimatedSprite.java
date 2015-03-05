@@ -4,8 +4,8 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 import ecrosogames.engine.main.EGApplication;
-import ecrosogames.engine.main.interfaces.Renderable;
-import ecrosogames.engine.main.interfaces.Updatable;
+import ecrosogames.engine.main.Renderable;
+import ecrosogames.engine.main.Updatable;
 
 /**
  * A {@link Sprite} with an animation. This class extends Sprite so that it will

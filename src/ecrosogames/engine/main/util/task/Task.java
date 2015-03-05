@@ -1,6 +1,6 @@
 package ecrosogames.engine.main.util.task;
 
-import ecrosogames.engine.main.interfaces.Updatable;
+import ecrosogames.engine.main.Updatable;
 
 /**
  * An event that should take place at a later time.
