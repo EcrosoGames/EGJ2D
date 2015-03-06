@@ -49,6 +49,10 @@ public abstract class EGGame extends Game implements Updatable {
 		if (dataFolderName != null) SystemData.setDataFolderName(dataFolderName);
 		new LwjglApplication(this, config);
 	}
+	
+	@Override
+	public void create() {
+	}
 
 	/**
 	 * Returns a {@link GameState}, which is just a sub-class of {@link Screen}.
