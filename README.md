@@ -11,8 +11,6 @@ This engine/wrapper is open to the public for them to use and aid in development
 
 Currently, any games made by EcrosoGames with this engine will NOT have the source online.
 
-Games to be supported by EGJ2D:
-
-* Cell Defender
-* Devastation
-* Curiosity
+### Required Libraries
+* LibGDX
+* LibGDX Box2D
