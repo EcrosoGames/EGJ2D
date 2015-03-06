@@ -11,12 +11,13 @@ public abstract class LivingEntity extends PhysicalEntity implements Damageable,
 
 	protected float health = 10f;
 	protected float maxHealth = health;
+	protected Targetable target;
 
 	/**
-	 * Creates a new LivingEntity and registers it to the specified
-	 * {@link World}.
+	 * Creates a new LivingEntity and sets its {@link World}.
 	 * 
 	 * @param world
+	 *            The {@link World}.
 	 */
 	public LivingEntity(World world) {
 		super(world);
@@ -52,5 +53,15 @@ public abstract class LivingEntity extends PhysicalEntity implements Damageable,
 	@Override
 	public void setMaxHealth(float maxHealth) {
 		this.maxHealth = maxHealth;
+	}
+
+	@Override
+	public Targetable getTarget() {
+		return target;
+	}
+
+	@Override
+	public void setTarget(Targetable target) {
+		this.target = target;
 	}
 }
