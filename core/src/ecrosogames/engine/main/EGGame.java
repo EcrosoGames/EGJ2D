@@ -8,7 +8,6 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import ecrosogames.engine.main.gamestate.GameState;
 import ecrosogames.engine.main.gamestate.IGameState;
@@ -21,7 +20,6 @@ import ecrosogames.engine.main.gamestate.IGameState;
  */
 public abstract class EGGame extends Game implements Updatable {
 
-	protected static SpriteBatch batch;
 	protected final EGVersion version;
 	protected int fps;
 	protected int fpsCounter;
@@ -29,9 +27,9 @@ public abstract class EGGame extends Game implements Updatable {
 	protected int updates;
 	protected float deltaTime;
 	protected int updateRate = 60;
-	
+
 	protected IGameState screen;
-	
+
 	/**
 	 * Creates a new {@link Application}.
 	 * 
@@ -49,42 +47,13 @@ public abstract class EGGame extends Game implements Updatable {
 		if (dataFolderName != null) SystemData.setDataFolderName(dataFolderName);
 		new LwjglApplication(this, config);
 	}
-	
+
 	@Override
 	public void create() {
+		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
+		init();
 	}
 
-	/**
-	 * Returns a {@link GameState}, which is just a sub-class of {@link Screen}.
-	 */
-	@Override
-	public GameState getScreen() {
-		return (GameState) screen;
-	}
-
-	@Deprecated
-	@Override
-	public void setScreen(Screen screen) {
-		if (!(screen instanceof IGameState)) {
-			Gdx.app.error("WARNING", "The provided Screen object must be a subclass of an IGameState object!");
-		} else setScreen((IGameState) screen);
-	}
-
-	/**
-	 * Sets the screen to the provided IGameState.
-	 * 
-	 * @param screen
-	 *            The IGameState to set the screen to.
-	 */
-	public void setScreen(IGameState screen) {
-		if (this.screen != null) {
-			this.screen.hide();
-			this.screen.dispose();
-		}
-		this.screen = screen;
-		this.screen.show();
-		if (screen != null) screen.load();
-	}
 	/**
 	 * An initialization method. This should be called only once for the
 	 * application.
@@ -100,6 +69,49 @@ public abstract class EGGame extends Game implements Updatable {
 	 * A separate method that should only be used for rendering the game.
 	 */
 	protected abstract void renderGame();
+
+	/**
+	 * This method is now obsolete in the EGJ2D library. Use
+	 * {@link #getGameState()} instead. If this method is used, it will attempt
+	 * to cast <code>screen</code> to a {@link GameState}.
+	 */
+	@Deprecated
+	@Override
+	public GameState getScreen() {
+		return (GameState) screen;
+	}
+
+	/**
+	 * Returns a {@link GameState}, which is just a sub-class of {@link Screen}.
+	 */
+	public GameState getGameState() {
+		return (GameState) screen;
+	}
+
+	/**
+	 * Obsolete for EGJ2D. Use {@link #setGameState(IGameState)} instead.
+	 */
+	@Deprecated
+	@Override
+	public void setScreen(Screen screen) {
+		if (!(screen instanceof IGameState)) {
+			Gdx.app.error("WARNING", "The provided Screen object must be a subclass of an IGameState object!");
+		} else setGameState((IGameState) screen);
+	}
+
+	/**
+	 * Sets the screen to the provided IGameState.
+	 * 
+	 * @param screen
+	 *            The IGameState to set the screen to.
+	 */
+	public void setGameState(IGameState screen) {
+		if (this.screen != null) {
+			this.screen.hide();
+		}
+		this.screen = screen;
+		this.screen.show();
+	}
 
 	@Override
 	public void update() {
@@ -140,16 +152,6 @@ public abstract class EGGame extends Game implements Updatable {
 	 */
 	protected void oneSecond() {
 		;
-	}
-
-	/**
-	 * Returns the {@link SpriteBatch} used for this {@link Application}. There
-	 * should always only be one instance of this.
-	 * 
-	 * @return
-	 */
-	public static SpriteBatch getBatch() {
-		return batch;
 	}
 
 	/**

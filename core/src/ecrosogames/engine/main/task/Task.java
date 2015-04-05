@@ -1,4 +1,4 @@
-package ecrosogames.engine.main.util.task;
+package ecrosogames.engine.main.task;
 
 import ecrosogames.engine.main.Updatable;
 

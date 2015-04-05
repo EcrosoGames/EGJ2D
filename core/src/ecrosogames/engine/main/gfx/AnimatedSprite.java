@@ -3,7 +3,7 @@ package ecrosogames.engine.main.gfx;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
-import ecrosogames.engine.main.EGApplication;
+import ecrosogames.engine.main.EGUtils;
 import ecrosogames.engine.main.Renderable;
 import ecrosogames.engine.main.Updatable;
 
@@ -49,7 +49,7 @@ public class AnimatedSprite extends Sprite implements Updatable, Renderable {
 	 */
 	@Override
 	public void render() {
-		sprite.draw(EGApplication.getBatch());
+		sprite.draw(EGUtils.getBatch());
 	}
 
 	/**

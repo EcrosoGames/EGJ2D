@@ -1,4 +1,4 @@
-package ecrosogames.engine.main.util.task;
+package ecrosogames.engine.main.task;
 
 /**
  * A task that Repeats after a given period of time. This type of task has to be

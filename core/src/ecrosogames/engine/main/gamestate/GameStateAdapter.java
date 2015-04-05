@@ -13,11 +13,6 @@ public class GameStateAdapter extends GameState {
 	}
 
 	@Override
-	public void load() {
-
-	}
-
-	@Override
 	public void update() {
 
 	}

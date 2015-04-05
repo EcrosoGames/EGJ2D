@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import ecrosogames.engine.main.EGApplication;
+import ecrosogames.engine.main.EGUtils;
 import ecrosogames.engine.main.EGVersion;
 
 public class TestStage extends EGApplication {
@@ -21,7 +22,7 @@ public class TestStage extends EGApplication {
 
 	@Override
 	public void init() {
-		stage = new Stage(new ScreenViewport(), getBatch());
+		stage = new Stage(new ScreenViewport(), EGUtils.getBatch());
 		TextureAtlas atlas = new TextureAtlas("myskin.atlas");
 		Skin skin = new Skin(Gdx.files.internal("myskin.json"), atlas);
 

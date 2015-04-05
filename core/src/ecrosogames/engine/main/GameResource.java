@@ -28,10 +28,10 @@ public class GameResource {
 	 *            The object to be returned by the key.
 	 * @return Whether or not this resource was added to the map.
 	 */
-	public static boolean addSprite(String name, Object obj) {
-		if (resources.containsKey(name)) return false;
+	public static <T> T add(String name, T obj) {
+		if (resources.containsKey(name)) return null;
 		resources.put(name, obj);
-		return true;
+		return obj;
 	}
 
 	/**
@@ -42,7 +42,8 @@ public class GameResource {
 	 *            The key for the object.
 	 * @return
 	 */
-	public static Object get(String name) {
-		return resources.get(name);
+	@SuppressWarnings("unchecked")
+	public static <T> T get(String name) {
+		return (T) resources.get(name);
 	}
 }

@@ -7,7 +7,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
  * The main class for the {@link ApplicationListener} that all games will extend
@@ -17,7 +16,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  */
 public abstract class EGApplication extends ApplicationAdapter implements Updatable {
 
-	protected static SpriteBatch batch;
 	protected final EGVersion version;
 	protected int fps;
 	protected int fpsCounter;
@@ -47,7 +45,6 @@ public abstract class EGApplication extends ApplicationAdapter implements Updata
 	@Override
 	public void create() {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
-		batch = new SpriteBatch();
 		init();
 	}
 
@@ -106,16 +103,6 @@ public abstract class EGApplication extends ApplicationAdapter implements Updata
 	 */
 	protected void oneSecond() {
 		;
-	}
-
-	/**
-	 * Returns the {@link SpriteBatch} used for this {@link Application}. There
-	 * should always only be one instance of this.
-	 * 
-	 * @return
-	 */
-	public static SpriteBatch getBatch() {
-		return batch;
 	}
 
 	/**
