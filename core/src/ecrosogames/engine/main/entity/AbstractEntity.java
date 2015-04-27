@@ -9,7 +9,7 @@ import ecrosogames.engine.main.Updatable;
  * 
  * @author Michael Musgrove
  */
-public abstract class Entity implements Updatable {
+public abstract class AbstractEntity implements Updatable {
 
 	protected World world;
 	protected boolean removed;
@@ -19,7 +19,7 @@ public abstract class Entity implements Updatable {
 	 * 
 	 * @param world
 	 */
-	public Entity(World world) {
+	public AbstractEntity(World world) {
 		this.world = world;
 	}
 

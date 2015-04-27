@@ -1,26 +1,38 @@
 package ecrosogames.engine.main.entity;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.physics.box2d.World;
 
 /**
- * A {@link PhysicalEntity} that can be classified as "living."
+ * A {@link AbstractPhysicalEntity} that can be classified as "living."
  * 
  * @author Michael Musgrove
  */
-public abstract class LivingEntity extends PhysicalEntity implements Damageable, Targetable {
+public abstract class AbstractLivingEntity extends AbstractPhysicalEntity implements Damageable, Targetable {
 
 	protected float health = 10f;
 	protected float maxHealth = health;
 	protected Targetable target;
 
 	/**
-	 * Creates a new LivingEntity and sets its {@link World}.
-	 * 
-	 * @param world
-	 *            The {@link World}.
+	 * @see {@link AbstractPhysicalEntity#PhysicalEntity(World)}.
 	 */
-	public LivingEntity(World world) {
+	public AbstractLivingEntity(World world) {
 		super(world);
+	}
+
+	/**
+	 * @see {@link AbstractPhysicalEntity#PhysicalEntity(World, Sprite)}.
+	 */
+	public AbstractLivingEntity(World world, Sprite sprite) {
+		super(world, sprite);
+	}
+
+	/**
+	 * @see {@link AbstractPhysicalEntity#PhysicalEntity(World, Sprite, float, float)}.
+	 */
+	public AbstractLivingEntity(World world, Sprite sprite, float x, float y) {
+		super(world, sprite, x, y);
 	}
 
 	@Override
