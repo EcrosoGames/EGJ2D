@@ -182,4 +182,13 @@ public abstract class EGGame extends Game implements Updatable {
 	public int getFPS() {
 		return fps;
 	}
+
+	/**
+	 * Returns the current update rate of the game.
+	 * 
+	 * @return
+	 */
+	public int getUpdateRate() {
+		return updateRate;
+	}
 }
