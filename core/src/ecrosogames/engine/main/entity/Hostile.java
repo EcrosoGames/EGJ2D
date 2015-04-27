@@ -1,7 +1,7 @@
 package ecrosogames.engine.main.entity;
 
 /**
- * An interface used to be a host for all methods for any {@link Entity} that is
+ * An interface used to be a host for all methods for any {@link AbstractEntity} that is
  * or has the ability to be hostile.
  * 
  * @author Michael Musgrove
