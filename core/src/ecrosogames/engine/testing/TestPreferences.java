@@ -4,10 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
-import ecrosogames.engine.main.EGApplication;
+import ecrosogames.engine.main.EGGame;
 import ecrosogames.engine.main.EGVersion;
 
-public class TestPreferences extends EGApplication {
+public class TestPreferences extends EGGame {
 
 	public TestPreferences(EGVersion version, String dataFolderName, LwjglApplicationConfiguration config) {
 		super(version, dataFolderName, config);

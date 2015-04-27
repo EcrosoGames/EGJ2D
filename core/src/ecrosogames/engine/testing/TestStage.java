@@ -8,11 +8,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
-import ecrosogames.engine.main.EGApplication;
+import ecrosogames.engine.main.EGGame;
 import ecrosogames.engine.main.EGUtils;
 import ecrosogames.engine.main.EGVersion;
 
-public class TestStage extends EGApplication {
+public class TestStage extends EGGame {
 
 	private Stage stage;
 
