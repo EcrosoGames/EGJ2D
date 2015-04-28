@@ -38,12 +38,18 @@ public class GameResource {
 	 * Returns the Object with the specified name for the key, or null if not
 	 * found.
 	 * 
+	 * If the resource is not of the type of the provided
+	 * <code>Class&lt;T&gt;</code>, an error will be thrown.
+	 * 
 	 * @param name
 	 *            The key for the object.
+	 * @param clazz
+	 *            Type <code>Class</code> that should be returned.
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T> T get(String name) {
-		return (T) resources.get(name);
+	public static <T> T get(String name, Class<T> clazz) {
+		Object resource = resources.get(name);
+		return (T) resource;
 	}
 }
