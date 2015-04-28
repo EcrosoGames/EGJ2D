@@ -1,9 +1,9 @@
 package ecrosogames.engine.main.entity;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.World;
 
 import ecrosogames.engine.main.Positionable2D;
@@ -82,19 +82,11 @@ public abstract class AbstractPhysicalEntity extends AbstractEntity implements R
 	public void dispose() {
 		if (body != null) body.getWorld().destroyBody(body);
 	}
-	
+
 	protected void initializeMovementVariables() {
 		movementLeft = new Vector2(-5f * body.getMass(), 0f);
 		movementRight = new Vector2(5f * body.getMass(), 0f);
 		jumpForce = new Vector2(0f, Math.abs(world.getGravity().y) * body.getMass());
-	}
-	
-	@Override
-	public void render() {
-		if (sprite == null) return;
-		Vector2 bodyPos = body.getTransform().getPosition();
-		sprite.setPosition(bodyPos.x, bodyPos.y);
-		sprite.setRotation(body.getAngle() * MathUtils.radiansToDegrees);
 	}
 
 	/**
